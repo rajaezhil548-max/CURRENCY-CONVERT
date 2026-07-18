@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: blueviolet;
+    margin: 10%;
+}
+
+.outside-div {
+    background: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 70px;
+    padding-right: 70px;
+    text-align: center;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.outside-div img {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.outside-div h4 {
+    text-align: left;
+    padding-top: 20px;
+}
+
+.outside-div input {
+    margin-top: 10px;
+    height: 30px;
+    width: 100%;
+    border-bottom: 100%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-color: blueviolet;
+    outline: none;
+}
+
+.one {
+    background: blueviolet;
+    color: white;
+    margin-top: 20px;
+    padding: 10px;
+    padding-left: 10px;
+    text-align: left;
+    text-align-last: left;
+    padding-right: 80px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.two {
+    background: blueviolet;
+    color: white;
+    margin-top: 20px;
+    padding: 10px;
+    padding-left: 10px;
+    text-align: left;
+    text-align-last: left;
+    padding-right: 80px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+.press{
+    padding-top: 20px;
+}
+.press button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 125px;
+    padding-right: 125px;
+    background: blueviolet;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+.back{
+    padding-top: 20px;
+}
+.back button{
+     padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 135px;
+    padding-right: 135px;
+    background: blueviolet;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+#result{
+    margin-top:20px;
+    color:blueviolet;
+    text-align:center;
+}
