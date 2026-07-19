@@ -1,40 +1,64 @@
-let amount = document.querySelector("input");
-let from = document.querySelector(".one");
-let to = document.querySelector(".two");
-
-let convert = document.querySelector(".press button");
+let inputdisplay = document.querySelector("input");
+let one1 = document.querySelector("select.one");
+let two2 = document.querySelector("select.two");
+let convert1 = document.querySelector(".press button");
 let clear = document.querySelector(".back button");
+let res = document.getElementById("result");
 
-let result = document.getElementById("result");
+convert1.onclick = function () {
 
-let rates = {
-    USD: 1,
-    INR: 86,
-    AED: 3.67,
-    AFN: 70,
-    AMD: 385
-};
+    let money = Number(inputdisplay.value);
 
-convert.onclick = function () {
 
-    let money = Number(amount.value);
-
-    if (money <= 0) {
-        result.innerHTML = "Enter a valid amount";
+    if (money <= 0 || isNaN(money)) {
+        res.innerHTML = "Please enter a valid amount";
         return;
     }
 
-    let fromRate = rates[from.value];
-    let toRate = rates[to.value];
+    if (one1.value == "" || two2.value == "") {
+        res.innerHTML = "Please select both currencies";
+        return;
+    }
 
-    let answer = (money / fromRate) * toRate;
 
-    result.innerHTML = money + " " + from.value +" = " + answer.toFixed(2) + " " + to.value;
+    fetch("https://open.er-api.com/v6/latest/USD")
+
+        .then(function (response) {
+            return response.json();
+        })
+
+        .then(function (data) {
+
+            let rates = data.rates;
+
+            let fromRate = rates[one1.value];
+            let toRate = rates[two2.value];
+
+            let answer = (money / fromRate) * toRate;
+
+            res.innerHTML =
+                money + " " +
+                one1.value +
+                " = " +
+                answer.toFixed(2) +
+                " " +
+                two2.value;
+
+        })
+
+        .catch(function () {
+
+            res.innerHTML = "Unable to connect. Check your internet.";
+
+        });
+
 };
 
 clear.onclick = function () {
-    amount.value = "";
-    from.selectedIndex = 0;
-    to.selectedIndex = 0;
-    result.innerHTML = "";
+
+    inputdisplay.value = "";
+    one1.selectedIndex = 0;
+    two2.selectedIndex = 0;
+    res.innerHTML = "";
+
 };
